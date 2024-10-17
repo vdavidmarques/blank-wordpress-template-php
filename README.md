@@ -1,0 +1,1 @@
+# blank-wordpress-template-php
