@@ -3,7 +3,7 @@
 This project is a **blank WordPress template** designed to help you kick-start your web development projects using **WordPress** as a CMS (Content Management System). The goal is to provide a streamlined foundation for building a website with pre-configured settings, saving time and effort.
 
 ## 🚀 Features
-- **WordPress** serves as the CMS with ACF, WP REST API, and Safe SVG plugins.
+- **WordPress** serves as the CMS with ACF and Safe SVG plugins.
 
 ## 🛠️ Requirements
 To run this project, make sure you have the following:
@@ -28,19 +28,16 @@ mkdir backend
 
 ``
 ### 2. Install WordPress Plugins
-WP REST API: This will enable WordPress to interact with the React and Laravel setup.
 ACF (Advanced Custom Fields): For creating custom content fields within WordPress.
 Safe SVG: Allows the safe upload and use of SVG files in WordPress.
-Contact Form 7
+
 You can install these plugins directly via the WordPress admin dashboard or download and place them in the wp-content/plugins directory.
 
 - Active the theme and all the presets plugins
-- Urls examples at rest api
-/index.php?rest_route=/wp/v2/pages&slug=homepage
-/index.php?rest_route=/wp/v2/pages&slug=pages&slug=about
 
 ### 5. Run the Project
 
 ````bash
-cd frontend
-npm start
+cd wp-content/themes/blank
+npm install
+npm run dev

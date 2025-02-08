@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 const cleanCSS = require('gulp-clean-css');
 const terser = require('gulp-terser');
-const sass = require('gulp-sass')(require('sass'));
+const sass = require('gulp-dart-sass')(require('sass'));
 
 // Tarefa para compilar o Sass e minificar o CSS
 gulp.task('styles', function() {
@@ -17,6 +17,13 @@ gulp.task('scripts', function() {
         .pipe(terser())
         .pipe(gulp.dest('dist/js')); // Pasta de destino dos arquivos minificados
 });
+
+// Tarefa para observar mudanças nos arquivos Sass e JS
+gulp.task('watch', function() {
+    gulp.watch('src/sass/**/*.scss', gulp.series('styles'));
+    gulp.watch('src/js/**/*.js', gulp.series('scripts'));
+});
+
 
 // Tarefa padrão para rodar as tarefas styles e scripts
 gulp.task('default', gulp.parallel('styles', 'scripts'));

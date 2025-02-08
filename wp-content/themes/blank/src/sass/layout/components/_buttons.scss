@@ -1,6 +1,4 @@
-@import '../../helpers/variables.scss';
-@import '../../helpers/mixins';
-@import '../../helpers/placeholder';
+@use "../../helpers" as *;
 
 .button {
   transition-property: color, background-color, border-color,
