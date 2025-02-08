@@ -10,23 +10,25 @@
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
     <div id="wrapper" class="hfeed">
-        <header id="header" role="banner">
-            <div id="branding">
-                <div id="site-title" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+        <header class="header" role="banner">
+            <div class="container header--container">
+                <div class="header--container--branding">
                     <?php
-                    if (is_front_page() || is_home() || is_front_page() && is_home()) {
-                        echo '<h1>';
-                    }
-                    echo '<a href="' . esc_url(home_url('/')) . '" title="' . esc_attr(get_bloginfo('name')) . '" rel="home" itemprop="url"><span itemprop="name">' . esc_html(get_bloginfo('name')) . '</span></a>';
-                    if (is_front_page() || is_home() || is_front_page() && is_home()) {
-                        echo '</h1>';
+                    if (function_exists('the_custom_logo')) {
+                        the_custom_logo();
                     }
                     ?>
                 </div>
+                <div class="open-menu-mobile">
+                    <button onclick="openMenu()" class="bg-menu-mobile">Menu</button>
+                </div>
+                <div class="header--container--menu-items">
+                    <?php custom_header_menu(); ?>
+    
+                    <button onclick="closeMenu()" class="bg-close-menu-mobile">
+                        Fechar menu
+                    </button>
+                </div>
             </div>
-            <nav id="menu" role="navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
-                <?php wp_nav_menu(array('theme_location' => 'main-menu', 'link_before' => '<span itemprop="name">', 'link_after' => '</span>')); ?>
-            </nav>
-        </header>
-        <div id="container">
+        </header>       
             <main id="content" role="main">

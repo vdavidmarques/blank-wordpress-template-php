@@ -1,10 +1,12 @@
 @import "helpers/mixins";
+@import "helpers/placeholder";
 @import "helpers/variables";
-@import "helpers/buttons";
-@import "helpers/heading-title";
 
 @import "layout/default";
-@import "layout/header";
-@import "layout/footer";
 
-@import "layout/components/main-banner";
+@import "layout/partials/header";
+@import "layout/partials/footer";
+@import "layout/partials/main-banner";
+
+@import "layout/components/buttons";
+@import "layout/components/heading-title"; 

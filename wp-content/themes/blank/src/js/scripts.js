@@ -5,7 +5,7 @@ function scrollTop() {
 var body = document.querySelector("body");
 
 function openMenu() {
-  var element = document.querySelectorAll(".header-menu-itens .menu-items");
+  var element = document.querySelectorAll(".header--container--menu-items");
   element.forEach(function (el) {
     el.classList.add("openned");
   });
@@ -14,7 +14,7 @@ function openMenu() {
 }
 
 function closeMenu() {
-  var close = document.querySelectorAll(".header-menu-itens .menu-items");
+  var close = document.querySelectorAll(".header--container--menu-items");
   close.forEach(function (item) {
     item.classList.remove("openned");
   });
@@ -22,8 +22,8 @@ function closeMenu() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  var menuModal = document.querySelector('.header-menu-itens .menu-items');
-  var menuItems = document.querySelectorAll('.header-menu-itens .menu-items .menu-item a');
+  var menuModal = document.querySelector('.header--container--menu-items');
+  var menuItems = document.querySelectorAll('.header--container--menu-items .menu-item a');
 
   // Close the modal when any menu item is clicked
   menuItems.forEach(function(item) {
@@ -75,10 +75,3 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', handleScroll);
   handleScroll();
 });
-
-function closeMessage(){
-  var closeMessage = document.querySelectorAll(".alert");
-  closeMessage.forEach(function(item){
-    item.classList.remove("opened");
-  })
-}

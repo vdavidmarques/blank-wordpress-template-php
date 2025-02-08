@@ -39,9 +39,19 @@ function register_custom_menus()
 {
     register_nav_menus(
         array(
-            'custom_header_menu' => __('Menu do Header', 'consultoria-vida-segura'),
-            'custom_footer_menu' => __('Menu do Footer', 'consultoria-vida-segura'),
+            'custom_header_menu' => __('Menu do Header', 'blank-template'),
+            'custom_footer_menu' => __('Menu do Footer', 'blank-template'),
         )
     );
 }
 add_action('after_setup_theme', 'register_custom_menus');
+
+// Classe para adicionar classes únicas para cada sub-menu
+class Custom_Menu_Walker extends Walker_Nav_Menu {
+    function start_lvl( &$output, $depth = 0, $args = null ) {
+        $indent = str_repeat( "\t", $depth );
+        $classes = array( 'sub-menu', 'sub-menu-' . $depth );
+        $class_names = join( ' ', apply_filters( 'nav_menu_submenu_css_class', $classes, $args, $depth ) );
+        $output .= "\n$indent<ul class=\"$class_names\">\n";
+    }
+}
